@@ -1,0 +1,10 @@
+/SolitaireUndo/Assembly-CSharp-Editor.csproj
+/SolitaireUndo/Assembly-CSharp.csproj
+/SolitaireUndo/*.sln
+/SolitaireUndo/.idea/
+/SolitaireUndo/Library/
+/SolitaireUndo/Logs/
+/SolitaireUndo/obj/
+/SolitaireUndo/Temp/
+/SolitaireUndo/UserSettings/
+*.csproj
