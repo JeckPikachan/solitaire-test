@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 
+using SolitaireUndo.Commands;
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace SolitaireUndo
+namespace SolitaireUndo.CardGame
 {
     public class CardDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
@@ -75,11 +77,8 @@ namespace SolitaireUndo
             
             if (targetStack != null)
             {
-                foreach (Card card in _draggedCards)
-                {
-                    card.CurrentStack.RemoveCard(card);
-                    targetStack.AddCard(card);
-                }
+                var moveCommand = new MoveCardsCommand(_draggedCards, targetStack);
+                CommandsExecutor.Instance.Execute(moveCommand);
             }
             else
             {

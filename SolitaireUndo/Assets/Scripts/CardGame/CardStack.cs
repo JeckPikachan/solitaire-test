@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
 
-namespace SolitaireUndo
+namespace SolitaireUndo.CardGame
 {
     public class CardStack : MonoBehaviour
     {
@@ -30,10 +29,6 @@ namespace SolitaireUndo
         public void RemoveCard(Card card)
         {
             _cards.Remove(card);
-            if (_cards.Count != 0)
-            {
-                _cards[^1].SetFaceUp(true);
-            }
         }
         
         public List<Card> GetCardsFrom(Card startingCard)
@@ -41,6 +36,11 @@ namespace SolitaireUndo
             int index = _cards.IndexOf(startingCard);
             if (index == -1) return new List<Card>();
             return _cards.GetRange(index, _cards.Count - index);
+        }
+
+        public Card GetLastCard()
+        {
+            return _cards.Count > 0 ? _cards[^1] : null;
         }
     }
 }
