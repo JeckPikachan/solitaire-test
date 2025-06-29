@@ -35,5 +35,12 @@ namespace SolitaireUndo
                 _cards[^1].SetFaceUp(true);
             }
         }
+        
+        public List<Card> GetCardsFrom(Card startingCard)
+        {
+            int index = _cards.IndexOf(startingCard);
+            if (index == -1) return new List<Card>();
+            return _cards.GetRange(index, _cards.Count - index);
+        }
     }
 }
